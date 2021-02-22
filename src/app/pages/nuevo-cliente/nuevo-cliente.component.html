@@ -1,0 +1,148 @@
+<form  autocomplete="off" [formGroup]="forma" (ngSubmit)="nuevoCliente()">
+  <div class="card-body">
+    <div class="row form-group">
+
+      <div class="col-lg-4">
+        <div class="form-group">
+          <label class="col-form-label" for="formGroupNegocio">Nombre del negocio</label>
+
+          <input type="text"
+                 name="nombres"
+                 class="form-control"
+                 id="formGroupNegocio"
+                 formControlName="negocio"
+                 [class.is-invalid]="negocioNoValido">
+
+          <div *ngIf="negocioNoValido" class="invalid-feedback">
+            Escribir minimo 4 letras
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    <div class="row form-group">
+        <div class="col-lg-4">
+          <div class="form-group">
+            <label class="col-form-label" for="formGroupNombres">Nombres del encargado</label>
+
+            <input type="text"
+                   name="nombres"
+                   class="form-control"
+                   id="formGroupNombres"
+                   formControlName="nombres"
+                   [class.is-invalid]="nombresNoValido">
+
+                  <div *ngIf="nombresNoValido" class="invalid-feedback">
+                    Escribir minimo 4 letras
+                  </div>
+
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="form-group">
+            <label class="col-form-label" for="formGroupDocumento">Documento</label>
+
+            <input type="text"
+                   name="documento"
+                   class="form-control"
+                   id="formGroupDocumento"
+                   formControlName="documento"
+                   [class.is-invalid]="documentoNoValido">
+
+                  <div *ngIf="documentoNoValido" class="invalid-feedback">
+                    Escribir minimo 3 letras
+                  </div>
+
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="form-group">
+            <label class="col-form-label" for="formGroupEmail">Email</label>
+
+            <input type="text"
+                   name="email"
+                   class="form-control"
+                   id="formGroupEmail"
+                   formControlName="email"
+                   [class.is-invalid]="emailNoValido">
+
+                  <div *ngIf="emailNoValido" class="invalid-feedback">
+                    Debe escribir un email válido
+                  </div>
+
+          </div>
+        </div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col-lg-4">
+        <div class="form-group">
+          <label class="col-form-label" for="formGroupTelefono">Telefono</label>
+
+          <input type="text"
+                 name="telefono"
+                 class="form-control"
+                 id="formGroupTelefono"
+                 formControlName="telefono"
+                 [class.is-invalid]="telefonoNoValido">
+
+                <div *ngIf="telefonoNoValido" class="invalid-feedback">
+                  Escribir minimo 5 números
+                </div>
+
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="form-group">
+          <label class="col-form-label" for="formGroupDiraccion">Dirección</label>
+
+          <input type="text"
+                 name="direccion"
+                 class="form-control"
+                 id="formGroupDiraccion"
+                 formControlName="direccion"
+                 [class.is-invalid]="direccionNoValido">
+
+                <div *ngIf="direccionNoValido" class="invalid-feedback">
+                  Escribir minimo 5 letras
+                </div>
+
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="form-group">
+
+          <label class="col-form-label" for="formGroupCiudades">Ciudad</label>
+
+          <select class="form-control"
+                  name="ciudad"
+                  id="formGroupCiudades"
+                  formControlName="ciudad"
+                  [class.is-invalid]="ciudadNoValido">
+
+            <option value="">--</option>
+            <option *ngFor="let ciudad of ciudades" value="{{ ciudad.id }}">{{ ciudad.ciudad }}</option>
+
+          </select>
+
+          <div *ngIf="ciudadNoValido" class="invalid-feedback">
+            Falta elegir la ciudad
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <div class="card-footer">
+    <div class="row">
+      <div class="col text-right">
+        <button type="button" routerLink="/cliente" class="btn btn-danger mr-1"> <i class="fas fa-times"></i> Cancelar </button>
+        <button type="submit" class="btn btn-primary"> <i class="fas fa-save"></i> Guardar </button>
+
+      </div>
+    </div>
+  </div>
+</form>

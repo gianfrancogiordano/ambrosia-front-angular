@@ -1,0 +1,14 @@
+<nav id="menu" class="nav-main" role="navigation">
+
+  <ul class="nav nav-main">
+    <li *ngFor="let items of menu"
+        routerLinkActive="nav-active">
+
+      <a class="nav-link" [routerLink]="[ items.url ]">
+        <i [class]="items.icono" aria-hidden="true"></i>
+        <span>{{ items.titulo }}</span>
+      </a>
+    </li>
+
+  </ul>
+</nav>

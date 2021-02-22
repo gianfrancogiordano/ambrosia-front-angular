@@ -1,0 +1,79 @@
+  <div class="row">
+    <div class="col-lg-4 col-xl-3 mb-4 mb-xl-0">
+
+      <section class="card">
+        <div class="card-body">
+          <div class="thumb-info mb-3 text-center">
+            <img [src]="cliente.avatar" class="rounded img-fluid" alt="John Doe">
+          </div>
+        </div>
+      </section>
+
+    </div>
+    <div class="col-lg-8 col-xl-6">
+
+      <div class="tabs">
+        <ul class="nav nav-tabs tabs-primary">
+          <li class="nav-item active">
+            <a class="nav-link" href="#overview" data-toggle="tab">Datos del Cliente</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div id="overview" class="tab-pane active">
+
+            <div class="p-3">
+
+              <dl class="row">
+                <dt class="col-sm-4">Nombre del negocio:</dt>
+                <dd class="col-sm-8">{{ cliente.negocio }}</dd>
+
+                <dt class="col-sm-4">Documento:</dt>
+                <dd class="col-sm-8">{{ cliente.documento }}</dd>
+
+                <dt class="col-sm-4">Encargado:</dt>
+                <dd class="col-sm-8">{{ cliente.nombres }}</dd>
+
+                <dt class="col-sm-4">Email:</dt>
+                <dd class="col-sm-8">{{ cliente.email }}</dd>
+
+                <dt class="col-sm-4">Teléfono:</dt>
+                <dd class="col-sm-8">{{ cliente.telefono }}</dd>
+
+                <dt class="col-sm-4">Dirección:</dt>
+                <dd class="col-sm-8">{{ cliente.direccion }}</dd>
+
+                <dt class="col-sm-4">Ciudad:</dt>
+                <dd class="col-sm-8">{{ cliente.municipio }}</dd>
+              </dl>
+
+              <h4 class="mb-3 pt-4">Ubicación Geográfica</h4>
+
+              <app-mapa [idCliente]="idCliente"></app-mapa>
+
+            </div>
+            <div class="row">
+              <div class="col text-right">
+                <button routerLink="/cliente" class="btn btn-danger"><i class="fas fa-undo-alt"></i> Volver</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3">
+
+      <h4 class="mb-3 mt-0">Estadisticas de compras</h4>
+      <ul class="simple-card-list mb-3">
+        <li class="primary">
+          <h3> -- </h3>
+          <p class="text-light">Cantidad de pedidos</p>
+        </li>
+        <li class="primary">
+          <h3> -- </h3>
+          <p class="text-light">Total Compras</p>
+        </li>
+      </ul>
+
+    </div>
+  </div>

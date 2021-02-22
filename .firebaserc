@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "alimentos-colombeia": {
+      "hosting": {
+        "ambrosiaFront": [
+          "alimentos-colombeia"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "alimentos-colombeia"
+  }
+}

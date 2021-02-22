@@ -1,0 +1,90 @@
+
+<div class="card-body">
+
+  <div class="row">
+    <div class="col-2 text-left mb-3">
+
+      <select #cambioPag (change)="changePorPag( cambioPag.value )" class="form-control" name="" id="">
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+        <option value="40">40</option>
+      </select>
+
+    </div>
+    <div class="col-6 text-center">
+      <div *ngIf="loadingTable"> <p class="text-monospace"><i class="fas fa-spinner fa-pulse fa-3x"></i> Cargando ...</p></div>
+    </div>
+    <div class="offset-1 col-3">
+
+      <form (ngSubmit)="buscarCliente()">
+        <div class="input-group">
+          <input [(ngModel)]="filtroData" name="filtro" class="form-control" type="text" placeholder="Buscar ...">
+          <div class="input-group-append">
+            <button class="btn btn-outline-primary" type="submit"><i class="fas fa-search"></i></button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+  <table class="table table-responsive-md mb-0">
+    <thead>
+    <tr>
+      <th># Cliente</th>
+      <th>Nombre Comercial</th>
+      <th>Nombre Encargado</th>
+      <th>Documento</th>
+      <th>Email</th>
+      <th>Telefono</th>
+      <th>Ciudad</th>
+      <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr *ngFor="let cliente of tableData.data" >
+      <td>{{ cliente.idclientes }}</td>
+      <td>{{ cliente.negocio }}</td>
+      <td>{{ cliente.nombres }}</td>
+      <td>{{ cliente.documento }}</td>
+      <td>{{ cliente.email }}</td>
+      <td>{{ cliente.telefono }}</td>
+      <td>{{ cliente.municipio }}</td>
+      <td class="actions">
+        <button title="Pedido Cliente" (click)="pedidoCliente( cliente.idclientes )" class="btn btn-success btn-sm mr-1 mb-1" href=""><i class="fas fa-truck-loading"></i></button>
+        <button title="Ver/Editar Cliente" (click)="verCliente( cliente.idclientes )" class="btn btn-primary btn-sm mr-1 mb-1" href=""><i class="fas fa-eye"></i></button>
+        <button title="Eliminar Cliente" (click)="eliminarCliente( cliente.idclientes )" class="btn btn-danger btn-sm mr-1 mb-1" href=""><i class="far fa-trash-alt"></i></button>
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+
+  <div class="row mt-3">
+    <div class="col-12 col-md-6">
+      <small>Mostrando {{ porPagina }} registros de un total de {{ tableData.conteo }} registros</small>
+    </div>
+    <div class="col-12 col-md-6">
+
+      <ul class="pagination justify-content-end">
+
+        <li class="page-item">
+          <a class="page-link" (click)="getClientes(tableData.pagAnterior, porPagina)" style="cursor: pointer" tabindex="-1" aria-disabled="true">Anterior</a>
+        </li>
+
+        <li *ngFor="let pagina of tableData.paginas; let i = index"
+            [ngClass]="{ 'active': tableData.pagActual === pagina }">
+
+          <a class="page-link" (click)="getClientes(pagina, porPagina)" style="cursor: pointer">{{ pagina }}</a>
+        </li>
+
+        <li class="page-item">
+          <a class="page-link" (click)="getClientes( tableData.pagSiguiente , porPagina)" style="cursor: pointer" tabindex="-1" aria-disabled="true">Siguiente</a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+
+</div>

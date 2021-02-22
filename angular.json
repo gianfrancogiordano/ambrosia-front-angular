@@ -24,7 +24,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
             ],
             "scripts": []
           },
@@ -117,8 +117,16 @@
               "devServerTarget": "ambrosiaFront:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
-  "defaultProject": "ambrosiaFront"
+    }
+  },
+  "defaultProject": "ambrosiaFront",
+  "cli": {
+    "analytics": "25d6d290-2270-4418-8797-fdb2cb0c906b"
+  }
 }
